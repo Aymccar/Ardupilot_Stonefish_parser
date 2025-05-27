@@ -1,0 +1,13 @@
+launch:
+  - node:
+      pkg: "ArdupilotStonefish"
+      exec: "pwm_motors_node"
+      name: "Pwm_motors"
+      namespace: ""
+
+  - node:
+      pkg: "ArdupilotStonefish"
+      exec: "baro_node"
+      name: "Baro"
+      namespace: ""
+

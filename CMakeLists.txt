@@ -9,17 +9,26 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 include_directories(include)
 
 add_executable(pwm_motors_node src/PWM_Motors.cpp)
+add_executable(baro_node src/Baro.cpp)
 ament_target_dependencies(pwm_motors_node
     rclcpp
     std_msgs
 )
 
+ament_target_dependencies(baro_node
+    rclcpp
+    std_msgs
+    sensor_msgs
+)
+
 install(TARGETS
     pwm_motors_node
+    baro_node
     DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -22,7 +22,7 @@ void PWM_Motor::topic_callback(const subscriber_msg_t::SharedPtr msg) const {
     double ret[MOTOR_NUM];
 
     for (size_t i=0; i<MOTOR_NUM; i++){
-        ret[i] = 15*convert(msg->data[i]);
+        ret[i] = 25*convert(msg->data[i]);
     }
 
     publisher_msg_t msg_;
