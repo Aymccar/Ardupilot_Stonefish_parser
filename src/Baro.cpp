@@ -6,7 +6,7 @@
 using std::placeholders::_1;
 
 Baro::Baro(std::string publisher_name, std::string subscriber_name):
-    Node("Baro")
+    Node("Baro_parser")
 {
     publisher = this->create_publisher<publisher_msg_t>(publisher_name, 10);
     subscriber = this->create_subscription<subscriber_msg_t>(subscriber_name, 10, std::bind(&Baro::topic_callback, this, _1));

@@ -15,6 +15,8 @@ include_directories(include)
 
 add_executable(pwm_motors_node src/PWM_Motors.cpp)
 add_executable(baro_node src/Baro.cpp)
+add_executable(compass_node src/Compass.cpp)
+
 ament_target_dependencies(pwm_motors_node
     rclcpp
     std_msgs
@@ -26,9 +28,16 @@ ament_target_dependencies(baro_node
     sensor_msgs
 )
 
+ament_target_dependencies(compass_node
+    rclcpp
+    std_msgs
+    sensor_msgs
+)
+
 install(TARGETS
     pwm_motors_node
     baro_node
+    compass_node
     DESTINATION lib/${PROJECT_NAME}
 )
 

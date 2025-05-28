@@ -12,7 +12,7 @@ double convert(int val) {
 }
 
 PWM_Motor::PWM_Motor(std::string publisher_name, std::string subscriber_name):
-    Node("PWM_Motor")
+    Node("PWM_Parser")
 {
     publisher = this->create_publisher<publisher_msg_t>(publisher_name, 10);
     subscriber = this->create_subscription<subscriber_msg_t>(subscriber_name, 10, std::bind(&PWM_Motor::topic_callback, this, _1));
