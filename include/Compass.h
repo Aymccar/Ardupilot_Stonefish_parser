@@ -1,9 +1,9 @@
 #include<rclcpp/rclcpp.hpp>
 #include<sensor_msgs/msg/magnetic_field.hpp>
-#include<std_msgs/msg/int32_multi_array.hpp>
+#include<std_msgs/msg/float32_multi_array.hpp>
 #include<string>
 
-#define publisher_msg_t std_msgs::msg::Int32MultiArray
+#define publisher_msg_t std_msgs::msg::Float32MultiArray
 #define subscriber_msg_t sensor_msgs::msg::MagneticField
 
 class Compass : public rclcpp::Node{
