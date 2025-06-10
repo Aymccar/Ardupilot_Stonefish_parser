@@ -7,10 +7,6 @@
 
 using std::placeholders::_1;
 
-double convert(int val) {
-    return ((double)val-1500)/400;
-}
-
 PWM_Motor::PWM_Motor(std::string publisher_name, std::string subscriber_name):
     Node("PWM")
 {
@@ -22,12 +18,22 @@ void PWM_Motor::topic_callback(const subscriber_msg_t::SharedPtr msg) const {
     double ret[MOTOR_NUM];
 
     for (size_t i = 0; i<MOTOR_NUM; i++){
-        ret[i] = 15*convert(msg->data[i]);
+        ret[i] = convert(msg->data[i]);
     }
 
     publisher_msg_t msg_;
     msg_.data = std::vector<double>(ret, ret + MOTOR_NUM);
     publisher->publish(msg_);
+}
+
+double PWM_Motor::convert(const double x) const {
+    if (x < model.left_thr){
+        return model.left_poly.get(x);
+    } else if(x > model.right_thr){
+        return model.right_poly.get(x);
+    } else {
+        return 0;
+    }
 }
 
 int main(int argc, char** argv){
