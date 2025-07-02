@@ -1,18 +1,18 @@
 launch:
   - node:
-      pkg: "ArdupilotStonefish"
+      pkg: "ardupilotstonefish"
       exec: "pwm_motors_node"
       name: "PWM"
       namespace: "Sea"
 
   - node:
-      pkg: "ArdupilotStonefish"
+      pkg: "ardupilotstonefish"
       exec: "baro_node"
       name: "Baro"
       namespace: "Sea"
         
   - node:
-      pkg: "ArdupilotStonefish"
+      pkg: "ardupilotstonefish"
       exec: "compass_node"
       name: "Compass"
       namespace: "Sea"
